@@ -1,0 +1,54 @@
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <div class="my-3">
+      <h2 class="text-center">Customer List</h2>
+    </div>
+    <div class="my-3 text-right">
+      <button class="btn btn-primary" [routerLink]="['add']" >
+        Add Customer
+      </button>
+    </div>
+    <div class="my-3">
+      <h2 *ngIf = "customerArray.length === 0" class="text-center">No data Available</h2>
+
+      <table *ngIf="customerArray.length !=0" class="table table-hover">
+        <thead>
+          <tr class="table-primary">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">Age</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>       
+          <tr></tr>
+          <tr *ngFor="let customer of customerArray">
+            <th>{{customer.id}}</th>
+            <th scope="row">{{ customer.Name }}</th>
+            <td>{{ customer.Phone }}</td>
+            <td>{{ customer.Address }}</td>
+            <td>{{ customer.Age }}</td>
+            <td class="text-center">
+              <a
+                class="btn btn-dark"
+                style="margin-right: 5px"
+                [routerLink]="['edit']"
+                (click)="editCustomer(customer)"
+                >Edit</a
+              >
+              <a class="btn btn-danger" (click)="deleteCustomer(customer)"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
