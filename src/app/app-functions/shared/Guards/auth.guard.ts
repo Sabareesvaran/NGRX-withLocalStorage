@@ -1,17 +1,16 @@
-import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { isAuthendicated } from './login/state/login.selector';
-import { LoginState } from './login/state/login.state';
-import { SharedService } from './shared/shared.service';
+import { LoginState } from '../../../login/state/login.state';
+import { SharedService } from '../shared.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate{
 
-  isAuthendicated = true;
+  isAuthenticated = true;
   userDetails:Subscription
   constructor(
     private store:Store<{User:LoginState}>,
@@ -21,8 +20,8 @@ export class AuthGuard implements CanActivate{
     ){}
 
   canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      this.isAuthendicated = this.shared.getToken()
-      if(this.isAuthendicated){
+      this.isAuthenticated = this.shared.getToken()
+      if(this.isAuthenticated){
         return true
       }else{
        this.router.navigate(['login'],{relativeTo:this.route})

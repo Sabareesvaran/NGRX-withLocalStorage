@@ -1,4 +1,4 @@
-import { createReducer, on, props } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { addCustomer, deleteCustomer, modifyCustomer } from "./customer.action";
 import { InitialState } from "./customer.state";
 

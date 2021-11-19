@@ -1,7 +1,7 @@
 export interface LoginState{
   Email:string,
   Password:string,
-  isAuthendicated:boolean
+  isAuthenticated:boolean
 }
 
 
@@ -9,6 +9,6 @@ export interface LoginState{
 export const InitialState: LoginState = {
   Email:"sabareesvaran@yavar.in",
   Password:"codingtown",
-  isAuthendicated:false
+  isAuthenticated:false
 }
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { logout } from '../login/state/login.actions';
-import { LoginState } from '../login/state/login.state';
-import { SharedService } from '../shared/shared.service';
+import { logout } from '../../../login/state/login.actions';
+import { LoginState } from '../../../login/state/login.state';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -24,8 +24,8 @@ export class NavbarComponent implements OnInit {
 
   onLogout(){
     this.store.dispatch(logout())
-    this.shared.setToken(false)
-    this.router.navigate(['login'],{relativeTo:this.route})
+    
+     this.router.navigate(['login'],{relativeTo:this.route})
   }
 
 }

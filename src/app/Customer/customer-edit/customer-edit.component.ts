@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { SharedService } from '../shared/shared.service';
+import { SharedService } from '../../app-functions/shared/shared.service';
 import { modifyCustomer } from '../state/customer.action';
 import { Customer } from '../state/customer.state';
 

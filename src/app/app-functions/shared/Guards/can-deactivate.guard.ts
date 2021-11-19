@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { CanDeactivate } from '@angular/router';
 
 
 export interface canLeaveComponent{
@@ -19,7 +19,6 @@ export class CanDeactivateGuard implements CanDeactivate<canLeaveComponent>{
       }else{
         return true;
       }
-    
     
   }
   

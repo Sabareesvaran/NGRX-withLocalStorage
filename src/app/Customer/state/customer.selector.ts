@@ -1,6 +1,6 @@
 
-import { createFeatureSelector, createSelector, props } from "@ngrx/store";
-import { Customer, CustomerState } from "./customer.state";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { CustomerState } from "./customer.state";
 
 
 const getCustomerState = createFeatureSelector<CustomerState>('customers');

@@ -2,10 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
-import { SharedService } from '../shared/shared.service';
+import { Subscription } from 'rxjs';
 import { login } from './state/login.actions';
-import { isAuthendicated } from './state/login.selector';
+import { isAuthenticated } from './state/login.selector';
 import { LoginState } from './state/login.state';
 
 @Component({
@@ -15,7 +14,7 @@ import { LoginState } from './state/login.state';
 })
 export class LoginComponent implements OnInit,OnDestroy {
 
-  isAuthendicated = false;
+  isAuthenticated = false;
   userDetails:Subscription
   Email:string
   Password:string
@@ -26,15 +25,14 @@ export class LoginComponent implements OnInit,OnDestroy {
     private store:Store<{User:LoginState}>,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private shared:SharedService,
     private router:Router,
     ) { }
 
   ngOnInit(): void {
-    this.userDetails = this.store.select(isAuthendicated).subscribe(data=>{
-      this.isAuthendicated = data;
-   })
+    this.userDetails = this.store.select(isAuthenticated).subscribe(data=>{
 
+      this.isAuthenticated = data;
+   })
 
    this.registerForm = this.formBuilder.group({
 
@@ -50,13 +48,12 @@ export class LoginComponent implements OnInit,OnDestroy {
     this.Password = this.registerForm.value.password
 
     this.registerForm.reset();
-
     this.store.dispatch(login({Email:this.Email,Password:this.Password}))
-    if(!this.isAuthendicated){
+
+    if(!this.isAuthenticated){
       alert("Username or Password Incorrect")
     }
     else{
-            this.shared.setToken(true)
             this.router.navigate(['/'],{relativeTo:this.route})
     }
   }

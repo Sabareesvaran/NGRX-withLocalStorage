@@ -17,7 +17,7 @@
       <table *ngIf="customerArray.length !=0" class="table table-hover">
         <thead>
           <tr class="table-primary">
-            <th scope="col">Id</th>
+            <th scope="col">S.No</th>
             <th scope="col">Name</th>
             <th scope="col">Phone</th>
             <th scope="col">Address</th>
@@ -28,8 +28,9 @@
         <tbody>       
           <tr></tr>
           <tr *ngFor="let customer of customerArray">
-            <th>{{customer.id}}</th>
-            <th scope="row">{{ customer.Name }}</th>
+            <!-- <th>{{customer.id}}</th> -->
+            <td></td>
+            <td scope="row">{{ customer.Name }}</td>
             <td>{{ customer.Phone }}</td>
             <td>{{ customer.Address }}</td>
             <td>{{ customer.Age }}</td>

@@ -14,12 +14,12 @@ const _loginReducer = createReducer(InitialState,on(login,(state,action)=>{
       }
   return{
     ...state,
-      isAuthendicated : bool
+      isAuthenticated : bool
   }
 }),on(logout,(state)=>{
   return {
     ...state,
-    isAuthendicated:false
+    isAuthenticated:false
   }
 }))
 

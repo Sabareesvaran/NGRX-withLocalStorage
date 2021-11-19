@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Customer } from '../state/customer.state';
 import { Observable, Subscription } from 'rxjs';
 import { getCustState } from '../state/customer.selector';
-import { SharedService } from '../shared/shared.service';
+import { SharedService } from '../../app-functions/shared/shared.service';
 import { deleteCustomer } from '../state/customer.action';
 
 @Component({
